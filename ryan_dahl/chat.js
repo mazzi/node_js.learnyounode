@@ -7,6 +7,7 @@ var s = net.Server(function(socket) {
 
     socket.on('data', function(d) {
         for (var i=0 ; i < sockets.length; i++) {
+            if (sochets[i] === socket) continue;
             sockets[i].write(d);
         }
     });
